@@ -1,0 +1,63 @@
+
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="display-4">Eat Da Burgers!</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-5" id="new-burger">
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Type of Burger:</label>
+    <input type="text" id="ca" burger_name="burger_name">
+  </div>
+
+  <div class="form-group" id ="radio-button">
+    <label for="eaten">What burger are you in the mood for!</label><br>
+    <input type="radio" burger_name="devoured" value="1">I want this burger!<br>
+    <input type="radio" burger_name="devoured" value="0">I've eaten this burger before! 
+  </div>
+
+  <button type="submit" id="new-burger">Add Burger</button>
+</form>
+<br>
+  </div>
+</div>
+  
+
+
+<br>
+
+<div class="row">
+  <div class="col-lg-6">
+<h2 class="text-center">Order Up!</h2>
+<ol>
+  {{#each burgers}}
+    {{#if devoured}}
+    {{> burgers/burger-block eat=false}}
+    {{/if}}
+  {{/each}}
+</ol>
+
+
+  </div>
+
+<div class="col-lg-5">
+
+<h2 class="text-center">Burgers that you've eaten!</h2>
+
+<ol>
+  {{#each burgers}}
+    {{#unless devoured}}
+    {{> burgers/burger-block eat=true}}
+    {{/unless}}
+  {{/each}}
+</ol>
+</div>
+
+</div>
+<br>
